@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
+use App\Jadwal;
+use Hash;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
@@ -11,9 +13,15 @@ class JadwalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+      $jadwal = Jadwal::orderBy('id_jadwal', 'ASC')->paginate(5);
+        return view('jadwal.index', compact('jadwal'));
+    }
+
+    public function create()
+    {
+        return view('jadwal.create');
     }
 
     /**
@@ -24,7 +32,16 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+          'hari' => 'required',
+          'id_kls' => 'required',
+          'id_sesi' => 'required',
+          'id_ruang' => 'required',
+      ]);
+
+      $jadwal = Jadwal::create($request->all());
+
+      return redirect()->route('jadwal.index')->with('message', 'Jadwal baru berhasil dibuat!');
     }
 
     /**
@@ -33,9 +50,10 @@ class JadwalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_jadwal)
     {
-        //
+      $jadwal = Jadwal::findOrFail($id_jadwal);
+      return view('jadwal.show', compact('jadwal'));
     }
 
     /**
@@ -45,9 +63,26 @@ class JadwalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+     public function edit($id_jadwal)
     {
-        //
+        $jadwal = Jadwal::findOrFail($id_jadwal);
+        return view('jadwal.edit', compact('jadwal'));
+    }
+
+    public function update(Request $request, $id_jadwal)
+    {
+      $this->validate($request, [
+        'hari' => 'required',
+        'id_kls' => 'required',
+        'id_sesi' => 'required',
+        'id_ruang' => 'required',
+        ]);
+
+        $jadwal = Jadwal::findOrFail($id_jadwal)->update($request->all());
+
+        return redirect()->route('jadwal.index')->with('message', 'Jadwal berhasil diubah!');
+
     }
 
     /**
@@ -56,8 +91,10 @@ class JadwalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_jadwal)
     {
-        //
+      $jadwal = Jadwal::findOrFail($id_jadwal)->delete();
+      return redirect()->route('jadwal.index')->with('message', 'Jadwal berhasil dihapus!');
+
     }
 }

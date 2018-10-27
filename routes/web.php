@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('index', 'JadwalController@index')->name('index');
+Route::get('pertemuan', 'PertemuanController@pertemuan')->name('pertemuan');
