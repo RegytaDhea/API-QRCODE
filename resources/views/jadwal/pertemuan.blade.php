@@ -8,7 +8,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    <a href="/"><i class="fa fa-dashboard fa-fw"></i>Home</a>
+    <a href="{{ url('/') }}"><i class="fa fa-dashboard fa-fw"></i>Home</a>
     <table class="table table-responsive martop-sm">
         <thead>
             <th>ID</th>
@@ -25,7 +25,7 @@
             @foreach ($pertemuan as $pertemuan)
                 <tr>
                     <td>{{ $pertemuan->id }}</td>
-                    <td>{{ $pertemuan->id_jadwal }}</a></td>
+                    <td>{{ $pertemuan->id_jdwl }}</a></td>
                     <td>{{ $pertemuan->nip_dosen }}</a></td>
                     <td>{{ $pertemuan->kesesuaian_rkps }}</a></td>
                     <td>{{ $pertemuan->capaian }}</a></td>

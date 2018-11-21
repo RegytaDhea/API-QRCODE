@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="index">Jadwal</a>
+                    <a href="kelas">Kelas</a>
                 </div>
             </div>
         </div>

@@ -1,24 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
-use App\Pertemuan;
-use Hash;
+
 use Illuminate\Http\Request;
 
-class PertemuanController extends Controller
+class PhotoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function pertemuan(Request $request, $id)
+    public function index()
     {
-      $pertemuan = Pertemuan::WHERE('id_jdwl', $id)->get();
-      return view('jadwal.pertemuan', compact('pertemuan'));
+        //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
@@ -32,7 +34,7 @@ class PertemuanController extends Controller
      */
     public function store(Request $request)
     {
-      //
+        //
     }
 
     /**
@@ -41,9 +43,20 @@ class PertemuanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_jadwal)
+    public function show($id)
     {
-      //
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -53,16 +66,9 @@ class PertemuanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-     public function edit($id_jadwal)
+    public function update(Request $request, $id)
     {
         //
-    }
-
-    public function update(Request $request, $id_jadwal)
-    {
-      //
-
     }
 
     /**
@@ -71,9 +77,8 @@ class PertemuanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_jadwal)
+    public function destroy($id)
     {
-      //
-
+        //
     }
 }

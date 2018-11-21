@@ -8,7 +8,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    <a href="/"><i class="fa fa-dashboard fa-fw"></i>Home</a>
+    <a href="{{ url('/') }}"><i class="fa fa-dashboard fa-fw"></i>Home</a>
     <table class="table table-responsive martop-sm">
         <thead>
             <th>ID</th>
@@ -27,7 +27,7 @@
                     <td>{{ $jadwal->id_sesi }}</a></td>
                     <td>{{ $jadwal->id_ruang }}</a></td>
                     <td>
-                            <a href="/pertemuan" button type="submit" class="btn btn-danger btn-sm">Pilih</button>
+                            <a href="{{ url('/pertemuan/'.$jadwal->id_jadwal) }}" button type="submit" class="btn btn-danger btn-sm">Pilih</button>
                     </td>
                 </tr>
             @endforeach

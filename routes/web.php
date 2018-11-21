@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('kelas', 'KelasController@kelas');
+Route::get('index/{id}', 'JadwalController@index');
+Route::get('pertemuan/{id}', 'PertemuanController@pertemuan');
 
-Route::get('index', 'JadwalController@index')->name('index');
-Route::get('pertemuan', 'PertemuanController@pertemuan')->name('pertemuan');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

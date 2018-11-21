@@ -13,11 +13,11 @@ class JadwalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-      $jadwal = Jadwal::orderBy('id_jadwal', 'ASC')->paginate(5);
-        return view('jadwal.index', compact('jadwal'));
-    }
+     public function index(Request $request, $id)
+     {
+       $jadwal = Jadwal::WHERE('id_kls', $id)->get();
+       return view('jadwal.index', compact('jadwal'));
+     }
 
     public function create()
     {
