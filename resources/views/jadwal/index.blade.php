@@ -9,6 +9,7 @@
         </div>
     @endif
     <a href="{{ url('/') }}"><i class="fa fa-dashboard fa-fw"></i>Home</a>
+
     <table class="table table-responsive martop-sm">
         <thead>
             <th>ID</th>
@@ -33,4 +34,6 @@
             @endforeach
         </tbody>
     </table>
+
+    <a href="{{ url('/kelas') }}"><i class="fa fa-dashboard fa-fw"></i>Back</a>
 @endsection

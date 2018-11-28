@@ -9,6 +9,7 @@
         </div>
     @endif
     <a href="{{ url('/') }}"><i class="fa fa-dashboard fa-fw"></i>Home</a>
+    <a href="{{ url('/pertemuan/create/'.$id_jadwal) }}">Tambah Pertemuan</a>
     <table class="table table-responsive martop-sm">
         <thead>
             <th>ID</th>
@@ -36,6 +37,7 @@
                 </tr>
             @endforeach
         </tbody>
-        <a href="/create">Tambah Pertemuan</a>
     </table>
+
+    <!-- <a href="{{ url('/index/'.$pertemuan->id_jdwl)}}"><i class="fa fa-dashboard fa-fw"></i>Back</a> -->
 @endsection

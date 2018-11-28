@@ -1,41 +1,61 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Contact</title>
+ <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
 
-@section('content')
-<h4>Artikel Baru</h4>
-<form action="{{ route('jadwal.store') }}" method="post">
-    {{csrf_field()}}
-    <div class="form-group {{ $errors->has('hari') ? 'has-error' : '' }}">
-        <label for="hari" class="control-label">Hari</label>
-        <input type="text" class="form-control" name="hari" placeholder="Hari">
-        @if ($errors->has('hari'))
-            <span class="help-block">{{ $errors->first('hari') }}</span>
-        @endif
-    </div>
-    <div class="form-group {{ $errors->has('id_kls') ? 'has-error' : '' }}">
-        <label for="id_kls" class="control-label">ID Kelas</label>
-        <input type="int" class="form-control" name="id_kls" placeholder="ID Kelas">
-        @if ($errors->has('id_kls'))
-            <span class="help-block">{{ $errors->first('id_kls') }}</span>
-        @endif
-    </div>
-    <div class="form-group {{ $errors->has('id_sesi') ? 'has-error' : '' }}">
-        <label for="id_sesi" class="control-label">ID Sesi</label>
-        <input type="int" class="form-control" name="id_sesi" placeholder="ID Sesi">
-        @if ($errors->has('id_sesi'))
-            <span class="help-block">{{ $errors->first('id_sesi') }}</span>
-        @endif
-    </div>
-    <div class="form-group {{ $errors->has('id_ruang') ? 'has-error' : '' }}">
-        <label for="id_ruang" class="control-label">ID Ruang</label>
-        <input type="int" class="form-control" name="id_ruang" placeholder="ID Ruang">
-        @if ($errors->has('id_ruang'))
-            <span class="help-block">{{ $errors->first('id_ruang') }}</span>
-        @endif
-    </div>
+<nav class="navbar navbar-inverse">
+ <div class="navbar-header">
+  <a class="navbar-brand" href="{{ URL::to('/') }}">Home</a>
+ </div>
+</nav>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-info">Simpan</button>
-        <a href="{{ route('jadwal.index') }}" class="btn btn-default">Kembali</a>
-    </div>
-</form>
-@endsection
+<h1>Tambah Pertemuan</h1>
+
+<!-- if there are creation errors, they will show here -->
+
+<table>
+	<form action="{{ url('') }}" method="POST" enctype="multipart/form-data">
+
+		<tr>
+			<td>ID Jadwal : </td>
+			<td><input type="text" name="id_jdwl" value="{{$id_jadwal}}" disabled></td>
+		</tr>
+		<tr>
+			<td>NIP Dosen :</td>
+			<td><input type="text" name="nip_dosen"></td>
+		</tr>
+		<tr>
+			<td>Kesesuaian RKPS :</td>
+			<td><input type="text" name="kesesuaian_rkps"></td>
+		</tr>
+		<tr>
+			<td>Capaian :</td>
+			<td><input type="text" name="capaian"></td>
+		</tr>
+		<tr>
+			<td>Waktu Mulai :</td>
+			<td><input type="time" name="waktu_mulai"></td>
+		</tr>
+    <tr>
+			<td>Waktu Selesai :</td>
+			<td><input type="time" name="waktu_selesai"></td>
+		</tr>
+    <tr>
+			<td>Keterangan :</td>
+			<td><input type="text" name="keterangan"></td>
+		</tr>
+    <tr>
+			<td>Materi :</td>
+			<td><input type="file" name="materi"></td>
+		</tr>
+			<td><input type="submit" name="aksi" value="tambah"></td>
+	</form>
+</table>
+
+</div>
+</body>
+</html>
