@@ -11,6 +11,6 @@ class Pertemuan extends Model
     protected $table = 'm_pertemuans';
 
     protected $fillable = [
-        'id','id_jadwal', 'nip_dosen', 'kesesuaian_rkps', 'capaian', 'waktu_mulai', 'waktu_selesai', 'keterangan', 'materi'
+        'id','id_jdwl', 'nip_dosen', 'kesesuaian_rkps', 'capaian', 'waktu_mulai', 'waktu_selesai', 'keterangan', 'materi'
     ];
 }

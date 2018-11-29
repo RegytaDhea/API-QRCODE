@@ -18,11 +18,11 @@
 <!-- if there are creation errors, they will show here -->
 
 <table>
-	<form action="{{ url('') }}" method="POST" enctype="multipart/form-data">
-
+	<form action="{{ route('pertemuan.new') }}" method="POST" enctype="multipart/form-data">
+    {{ csrf_field() }}
 		<tr>
 			<td>ID Jadwal : </td>
-			<td><input type="text" name="id_jdwl" value="{{$id_jadwal}}" disabled></td>
+			<td><input type="text" name="id_jdwl" value="{{$id_jadwal}}" readonly></td>
 		</tr>
 		<tr>
 			<td>NIP Dosen :</td>

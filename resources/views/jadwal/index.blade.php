@@ -28,7 +28,7 @@
                     <td>{{ $jadwal->id_sesi }}</a></td>
                     <td>{{ $jadwal->id_ruang }}</a></td>
                     <td>
-                            <a href="{{ url('/pertemuan/'.$jadwal->id_jadwal) }}" button type="submit" class="btn btn-danger btn-sm">Pilih</button>
+                            <a href="{{ url('/pertemuan/show/'.$jadwal->id_jadwal) }}" button type="submit" class="btn btn-danger btn-sm">Pilih</button>
                     </td>
                 </tr>
             @endforeach

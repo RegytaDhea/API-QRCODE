@@ -18,6 +18,7 @@ Route::get('kelas', 'KelasController@kelas');
 Route::get('index/{id}', 'JadwalController@index');
 Route::get('pertemuan/show/{id}', 'PertemuanController@pertemuan');
 Route::get('pertemuan/create/{id_jadwal}', 'PertemuanController@create');
+Route::post('pertemuan/new', "PertemuanController@store")->name('pertemuan.new');
 
 
 

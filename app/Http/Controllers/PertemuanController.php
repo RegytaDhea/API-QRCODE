@@ -62,37 +62,18 @@ class PertemuanController extends Controller
      */
     public function store(Request $request)
     {
-      $pertemuan = array(
-       'id_jdwl'  => Input::get('id_jdwl'),
-       'nip_dosen'      => Input::get('nip_dosen'),
-       'kesesuaian_rkps'    => Input::get('kesesuaian_rkps'),
-       'capaian'  => Input::get('capaian'),
-       'waktu_mulai'      => Input::get('waktu_mulai'),
-       'waktu_selesai'    => Input::get('waktu_selesai'),
-       'keterangan' => Input::get('keterangan'),
-       'materi' => Input::get('materi')
-     );
-      /*$validator = Validator::make(Input::all(), $pertemuan);
-      if ($validator->fails()) {
-       return Redirect::to('jadwal/create')
-        ->withErrors($validator)
-        ->withInput(Input);
-      } else {
-       // store
-       $pertemuan             = new Pertemuan;
-       $pertemuan->id_jdwl  = Input::get('id_jdwl');
-       $pertemuan->nip_dosen      = Input::get('nip_dosen');
-       $pertemuan->kesesuaian_rkps    = Input::get('kesesuaian_rkps');
-       $pertemuan->capaian = Input::get('capaian');
-       $pertemuan->waktu_mulai = Input::get('waktu_mulai');
-       $pertemuan->waktu_selesai = Input::get('waktu_selesai');
-       $pertemuan->keterangan = Input::get('keterangan');
-       $pertemuan->materi = Input::get('materi');
-       $pertemuan->save();*/
+      $pertemuan = Pertemuan::create([
+          'id_jdwl' => $request->id_jdwl,
+          'nip_dosen' => $request->nip_dosen,
+          'kesesuaian_rkps' => $request->kesesuaian_rkps,
+          'capaian' => $request->capaian,
+          'waktu_mulai' => $request->waktu_mulai,
+          'waktu_selesai' => $request->waktu_selesai,
+          'keterangan' => $request->keterangan,
+          'materi' => $request->file('materi'),
+      ]);
 
-       // redirect
-       $store = \App\Pertemuan::insert($pertemuan);
-       return Redirect::to('/pertemuan/.$pertemuan->id_jdwl')->with('message', 'berhasil ditambah');
+       return Redirect::to('/pertemuan/show/'.$request->id_jdwl)->with('message', 'berhasil ditambah');
       }
     }
 
