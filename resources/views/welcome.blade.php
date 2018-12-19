@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="kelas">Kelas</a>
+                    <a href="{{ url('/kelas') }}">Kelas</a>
                 </div>
             </div>
         </div>

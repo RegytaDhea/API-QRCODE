@@ -20,9 +20,10 @@ Route::get('pertemuan/show/{id}', 'PertemuanController@pertemuan');
 Route::get('pertemuan/create/{id_jadwal}', 'PertemuanController@create');
 Route::post('pertemuan/new', "PertemuanController@store")->name('pertemuan.new');
 
-
+Route::get('/pertemuan/qrcode', 'QrcodeController@index');
 
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/register', 'RegisterController@index');
 Route::post('pertemuan/create', 'PertemuanController@create');
